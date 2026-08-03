@@ -1,0 +1,1385 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "SABnzbd API",
+    "description": "Generated from the official SABnzbd 5.0 API reference. SABnzbd selects commands using mode and name query parameters.",
+    "version": "5.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Replace the generated client\u0027s base URL with the URL of the SABnzbd instance."
+    }
+  ],
+  "paths": {
+    "/api": {
+      "get": {
+        "tags": [
+          "Api"
+        ],
+        "summary": "Execute a SABnzbd API command",
+        "description": "Executes the command selected by mode and, where applicable, name. The response shape depends on those values. version and auth do not require an API key.",
+        "operationId": "ExecuteApiCommand",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Mode"
+          },
+          {
+            "$ref": "#/components/parameters/Archive"
+          },
+          {
+            "$ref": "#/components/parameters/Cat"
+          },
+          {
+            "$ref": "#/components/parameters/Category"
+          },
+          {
+            "$ref": "#/components/parameters/Connections"
+          },
+          {
+            "$ref": "#/components/parameters/DelFiles"
+          },
+          {
+            "$ref": "#/components/parameters/Dir"
+          },
+          {
+            "$ref": "#/components/parameters/Enable"
+          },
+          {
+            "$ref": "#/components/parameters/FailedOnly"
+          },
+          {
+            "$ref": "#/components/parameters/Keyword"
+          },
+          {
+            "$ref": "#/components/parameters/LastHistoryUpdate"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Name"
+          },
+          {
+            "$ref": "#/components/parameters/Nzbname"
+          },
+          {
+            "$ref": "#/components/parameters/NzfIds"
+          },
+          {
+            "$ref": "#/components/parameters/NzoIds"
+          },
+          {
+            "$ref": "#/components/parameters/Output"
+          },
+          {
+            "$ref": "#/components/parameters/Password"
+          },
+          {
+            "$ref": "#/components/parameters/Pp"
+          },
+          {
+            "$ref": "#/components/parameters/Priority"
+          },
+          {
+            "$ref": "#/components/parameters/Script"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          },
+          {
+            "$ref": "#/components/parameters/Section"
+          },
+          {
+            "$ref": "#/components/parameters/Size"
+          },
+          {
+            "$ref": "#/components/parameters/SkipDashboard"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/SortCats"
+          },
+          {
+            "$ref": "#/components/parameters/SortString"
+          },
+          {
+            "$ref": "#/components/parameters/SortType"
+          },
+          {
+            "$ref": "#/components/parameters/Start"
+          },
+          {
+            "$ref": "#/components/parameters/Status"
+          },
+          {
+            "$ref": "#/components/parameters/Username"
+          },
+          {
+            "$ref": "#/components/parameters/Value"
+          },
+          {
+            "$ref": "#/components/parameters/Value2"
+          },
+          {
+            "$ref": "#/components/parameters/Value3"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response for the query-selected SABnzbd command.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCommandResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCommandResponse"
+                }
+              },
+              "application/zip": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExecuteApiCommand200ZipResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKey": []
+          },
+          {}
+        ]
+      },
+      "post": {
+        "tags": [
+          "Api"
+        ],
+        "summary": "Upload an NZB file or retry a job with an additional NZB",
+        "operationId": "UploadNzb",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/NzbUploadRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Upload or retry response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiCommandResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKey": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiCommandResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ApiCommandResponseStatus"
+          },
+          "queue": {
+            "$ref": "#/components/schemas/ApiCommandResponseQueue"
+          },
+          "nzo_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "result": {
+            "$ref": "#/components/schemas/ApiCommandResponseResult"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCommandResponseFilesItem"
+            }
+          },
+          "history": {
+            "$ref": "#/components/schemas/ApiCommandResponseHistory"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scripts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "day": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "week": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "servers": {
+            "$ref": "#/components/schemas/ApiCommandResponseServersProperty"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCommandResponseWarningsItem"
+            }
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": "Combined response envelope inferred from the JSON examples in the SABnzbd API reference. Only properties returned by the selected command are populated."
+      },
+      "NzbUploadRequest": {
+        "required": [
+          "mode"
+        ],
+        "type": "object",
+        "properties": {
+          "mode": {
+            "$ref": "#/components/schemas/NzbUploadRequestMode"
+          },
+          "name": {
+            "type": "string",
+            "format": "binary"
+          },
+          "nzbfile": {
+            "type": "string",
+            "format": "binary"
+          },
+          "value": {
+            "type": "string",
+            "description": "nzo_id when retrying a job."
+          },
+          "nzbname": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "cat": {
+            "type": "string"
+          },
+          "script": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pp": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ApiCommandResponseQueue": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "speedlimit": {
+            "type": "string"
+          },
+          "speedlimit_abs": {
+            "type": "string"
+          },
+          "paused": {
+            "type": "boolean"
+          },
+          "noofslots_total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "noofslots": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "timeleft": {
+            "type": "string"
+          },
+          "speed": {
+            "type": "string"
+          },
+          "kbpersec": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          },
+          "sizeleft": {
+            "type": "string"
+          },
+          "mb": {
+            "type": "string"
+          },
+          "mbleft": {
+            "type": "string"
+          },
+          "slots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCommandResponseQueueSlotsItem"
+            }
+          },
+          "diskspace1": {
+            "type": "string"
+          },
+          "diskspace2": {
+            "type": "string"
+          },
+          "diskspacetotal1": {
+            "type": "string"
+          },
+          "diskspacetotal2": {
+            "type": "string"
+          },
+          "diskspace1_norm": {
+            "type": "string"
+          },
+          "diskspace2_norm": {
+            "type": "string"
+          },
+          "have_warnings": {
+            "type": "string"
+          },
+          "pause_int": {
+            "type": "string"
+          },
+          "left_quota": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "finish": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cache_art": {
+            "type": "string"
+          },
+          "cache_size": {
+            "type": "string"
+          },
+          "finishaction": {
+            "$ref": "#/components/schemas/ApiCommandResponseQueueFinishaction"
+          },
+          "paused_all": {
+            "type": "boolean"
+          },
+          "quota": {
+            "type": "string"
+          },
+          "have_quota": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApiCommandResponseResult": {
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiCommandResponseFilesItem": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "mbleft": {
+            "type": "string"
+          },
+          "mb": {
+            "type": "string"
+          },
+          "age": {
+            "type": "string"
+          },
+          "bytes": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "nzf_id": {
+            "type": "string"
+          },
+          "set": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiCommandResponseHistory": {
+        "type": "object",
+        "properties": {
+          "noofslots": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ppslots": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "day_size": {
+            "type": "string"
+          },
+          "week_size": {
+            "type": "string"
+          },
+          "month_size": {
+            "type": "string"
+          },
+          "total_size": {
+            "type": "string"
+          },
+          "last_history_update": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "slots": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCommandResponseHistorySlotsItem"
+            }
+          }
+        }
+      },
+      "ApiCommandResponseServers": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
+        }
+      },
+      "ApiCommandResponseWarningsItem": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "time": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiCommandResponseQueueSlotsItem": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "password": {
+            "type": "string"
+          },
+          "avg_age": {
+            "type": "string"
+          },
+          "time_added": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "script": {
+            "type": "string"
+          },
+          "direct_unpack": {
+            "type": "string",
+            "nullable": true
+          },
+          "mb": {
+            "type": "string"
+          },
+          "mbleft": {
+            "type": "string"
+          },
+          "mbmissing": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          },
+          "sizeleft": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority": {
+            "type": "string"
+          },
+          "cat": {
+            "type": "string"
+          },
+          "timeleft": {
+            "type": "string"
+          },
+          "percentage": {
+            "type": "string"
+          },
+          "nzo_id": {
+            "type": "string"
+          },
+          "unpackopts": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiCommandResponseHistorySlotsItem": {
+        "type": "object",
+        "properties": {
+          "action_line": {
+            "type": "string"
+          },
+          "duplicate_key": {
+            "type": "string"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ApiCommandResponseHistorySlotsItemMeta"
+          },
+          "fail_message": {
+            "type": "string"
+          },
+          "loaded": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "pp": {
+            "type": "string"
+          },
+          "retry": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "script": {
+            "type": "string"
+          },
+          "nzb_name": {
+            "type": "string"
+          },
+          "download_time": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "storage": {
+            "type": "string"
+          },
+          "has_rating": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "script_line": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "time_added": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nzo_id": {
+            "type": "string"
+          },
+          "downloaded": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "report": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "postproc_time": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "md5sum": {
+            "type": "string"
+          },
+          "archive": {
+            "type": "boolean"
+          },
+          "bytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "url_info": {
+            "type": "string"
+          },
+          "stage_log": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiCommandResponseHistorySlotsItemStageLogItem"
+            }
+          }
+        }
+      },
+      "ApiCommandResponseServersAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "week": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "day": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "month": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "daily": {
+            "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalPropertiesDailyProperty"
+          },
+          "articles_tried": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "articles_success": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "ApiCommandResponseHistorySlotsItemStageLogItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ApiCommandResponseServersAdditionalPropertiesDaily": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "ExecuteApiCommand200ZipResponse": {
+        "type": "string",
+        "format": "binary"
+      },
+      "ExamplePayload": {
+        "type": "object",
+        "description": "Placeholder schema for path example refs"
+      },
+      "ExecuteApiCommand200ZipResponseSchema": {
+        "type": "string",
+        "format": "binary"
+      },
+      "ApiCommandResponseStatus": {
+        "type": "object"
+      },
+      "ApiCommandResponseServersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
+        }
+      },
+      "ApiCommandResponseQueueFinishaction": {
+        "type": "object"
+      },
+      "ApiCommandResponseHistorySlotsItemMeta": {
+        "type": "object"
+      },
+      "ApiCommandResponseServersAdditionalPropertiesDailyProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "NzbUploadRequestMode": {
+        "enum": [
+          "addfile",
+          "retry"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "NzbUploadRequestMode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "addfile",
+              "name": "Addfile"
+            },
+            {
+              "value": "retry",
+              "name": "Retry"
+            }
+          ]
+        }
+      },
+      "Mode": {
+        "enum": [
+          "addlocalfile",
+          "addurl",
+          "auth",
+          "change_cat",
+          "change_opts",
+          "change_script",
+          "config",
+          "del_config",
+          "fullstatus",
+          "get_cats",
+          "get_config",
+          "get_files",
+          "get_scripts",
+          "history",
+          "move_nzf_bulk",
+          "pause",
+          "pause_pp",
+          "queue",
+          "reset_quota",
+          "restart",
+          "restart_repair",
+          "resume",
+          "resume_pp",
+          "retry",
+          "retry_all",
+          "rss_now",
+          "server_stats",
+          "set_config",
+          "set_config_default",
+          "showlog",
+          "shutdown",
+          "status",
+          "switch",
+          "translate",
+          "version",
+          "warnings",
+          "watched_now"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "Mode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "addlocalfile",
+              "name": "Addlocalfile"
+            },
+            {
+              "value": "addurl",
+              "name": "Addurl"
+            },
+            {
+              "value": "auth",
+              "name": "Auth"
+            },
+            {
+              "value": "change_cat",
+              "name": "ChangeCat"
+            },
+            {
+              "value": "change_opts",
+              "name": "ChangeOpts"
+            },
+            {
+              "value": "change_script",
+              "name": "ChangeScript"
+            },
+            {
+              "value": "config",
+              "name": "Config"
+            },
+            {
+              "value": "del_config",
+              "name": "DelConfig"
+            },
+            {
+              "value": "fullstatus",
+              "name": "Fullstatus"
+            },
+            {
+              "value": "get_cats",
+              "name": "GetCats"
+            },
+            {
+              "value": "get_config",
+              "name": "GetConfig"
+            },
+            {
+              "value": "get_files",
+              "name": "GetFiles"
+            },
+            {
+              "value": "get_scripts",
+              "name": "GetScripts"
+            },
+            {
+              "value": "history",
+              "name": "History"
+            },
+            {
+              "value": "move_nzf_bulk",
+              "name": "MoveNzfBulk"
+            },
+            {
+              "value": "pause",
+              "name": "Pause"
+            },
+            {
+              "value": "pause_pp",
+              "name": "PausePp"
+            },
+            {
+              "value": "queue",
+              "name": "Queue"
+            },
+            {
+              "value": "reset_quota",
+              "name": "ResetQuota"
+            },
+            {
+              "value": "restart",
+              "name": "Restart"
+            },
+            {
+              "value": "restart_repair",
+              "name": "RestartRepair"
+            },
+            {
+              "value": "resume",
+              "name": "Resume"
+            },
+            {
+              "value": "resume_pp",
+              "name": "ResumePp"
+            },
+            {
+              "value": "retry",
+              "name": "Retry"
+            },
+            {
+              "value": "retry_all",
+              "name": "RetryAll"
+            },
+            {
+              "value": "rss_now",
+              "name": "RssNow"
+            },
+            {
+              "value": "server_stats",
+              "name": "ServerStats"
+            },
+            {
+              "value": "set_config",
+              "name": "SetConfig"
+            },
+            {
+              "value": "set_config_default",
+              "name": "SetConfigDefault"
+            },
+            {
+              "value": "showlog",
+              "name": "Showlog"
+            },
+            {
+              "value": "shutdown",
+              "name": "Shutdown"
+            },
+            {
+              "value": "status",
+              "name": "Status"
+            },
+            {
+              "value": "switch",
+              "name": "SwitchValue"
+            },
+            {
+              "value": "translate",
+              "name": "Translate"
+            },
+            {
+              "value": "version",
+              "name": "Version"
+            },
+            {
+              "value": "warnings",
+              "name": "Warnings"
+            },
+            {
+              "value": "watched_now",
+              "name": "WatchedNow"
+            }
+          ]
+        }
+      },
+      "Archive": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "additionalProperties": false
+      },
+      "DelFiles": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "additionalProperties": false
+      },
+      "FailedOnly": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "additionalProperties": false
+      },
+      "Output": {
+        "enum": [
+          "json",
+          "xml"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "Output",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "json",
+              "name": "Json"
+            },
+            {
+              "value": "xml",
+              "name": "Xml"
+            }
+          ]
+        }
+      },
+      "SkipDashboard": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "additionalProperties": false
+      }
+    },
+    "parameters": {
+      "Mode": {
+        "name": "mode",
+        "in": "query",
+        "description": "Command to execute.",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/Mode"
+        }
+      },
+      "Archive": {
+        "name": "archive",
+        "in": "query",
+        "description": "Display history (default) or archived items",
+        "schema": {
+          "$ref": "#/components/schemas/Archive"
+        }
+      },
+      "Cat": {
+        "name": "cat",
+        "in": "query",
+        "description": "Only return jobs with the specified category or categories (separated by a comma) Use * for Default",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Category": {
+        "name": "category",
+        "in": "query",
+        "description": "Only return jobs with the specified category or categories (separated by a comma) Use * for Default",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Connections": {
+        "name": "connections",
+        "in": "query",
+        "description": "SABnzbd connections query parameter.",
+        "schema": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "DelFiles": {
+        "name": "del_files",
+        "in": "query",
+        "description": "SABnzbd del_files query parameter.",
+        "schema": {
+          "$ref": "#/components/schemas/DelFiles"
+        }
+      },
+      "Dir": {
+        "name": "dir",
+        "in": "query",
+        "description": "SABnzbd dir query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Enable": {
+        "name": "enable",
+        "in": "query",
+        "description": "SABnzbd enable query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "FailedOnly": {
+        "name": "failed_only",
+        "in": "query",
+        "description": "Only show failed jobs (shorthand for status=Failed)",
+        "schema": {
+          "$ref": "#/components/schemas/FailedOnly"
+        }
+      },
+      "Keyword": {
+        "name": "keyword",
+        "in": "query",
+        "description": "SABnzbd keyword query parameter.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "LastHistoryUpdate": {
+        "name": "last_history_update",
+        "in": "query",
+        "description": "Only return full output if anything has changed since last_history_update, the last update is given by a previous call to history",
+        "schema": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "Number of jobs to display",
+        "schema": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "Name": {
+        "name": "name",
+        "in": "query",
+        "description": "URL-encoded version of the link to the NZB to be fetched.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Nzbname": {
+        "name": "nzbname",
+        "in": "query",
+        "description": "Name of the job, if empty the NZB filename is used.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "NzfIds": {
+        "name": "nzf_ids",
+        "in": "query",
+        "description": "SABnzbd nzf_ids query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "NzoIds": {
+        "name": "nzo_ids",
+        "in": "query",
+        "description": "Only return jobs with these nzo_ids (separated by a comma)",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Output": {
+        "name": "output",
+        "in": "query",
+        "description": "Response format.",
+        "schema": {
+          "$ref": "#/components/schemas/Output"
+        }
+      },
+      "Password": {
+        "name": "password",
+        "in": "query",
+        "description": "Password to use when unpacking the job.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Pp": {
+        "name": "pp",
+        "in": "query",
+        "description": "\u0022Post-processing options: -1 = Default (of category) 0 = None 1 = \u002BRepair 2 = \u002BRepair/Unpack 3 = \u002BRepair/Unpack/Delete\u0022",
+        "schema": {
+          "maximum": 3,
+          "minimum": -1,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "Priority": {
+        "name": "priority",
+        "in": "query",
+        "description": "\u0022Priority to be assigned: -100 = Default Priority (of category) -3 = Duplicate -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force\u0022",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Script": {
+        "name": "script",
+        "in": "query",
+        "description": "Script to be assigned, Default will use the script assigned to the category. List of available scripts can be retrieved from get_scripts.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Search": {
+        "name": "search",
+        "in": "query",
+        "description": "Filter job names by search term",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Section": {
+        "name": "section",
+        "in": "query",
+        "description": "SABnzbd section query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Size": {
+        "name": "size",
+        "in": "query",
+        "description": "SABnzbd size query parameter.",
+        "schema": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "SkipDashboard": {
+        "name": "skip_dashboard",
+        "in": "query",
+        "description": "SABnzbd skip_dashboard query parameter.",
+        "schema": {
+          "$ref": "#/components/schemas/SkipDashboard"
+        }
+      },
+      "Sort": {
+        "name": "sort",
+        "in": "query",
+        "description": "SABnzbd sort query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SortCats": {
+        "name": "sort_cats",
+        "in": "query",
+        "description": "SABnzbd sort_cats query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SortString": {
+        "name": "sort_string",
+        "in": "query",
+        "description": "SABnzbd sort_string query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "SortType": {
+        "name": "sort_type",
+        "in": "query",
+        "description": "SABnzbd sort_type query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Start": {
+        "name": "start",
+        "in": "query",
+        "description": "Index of job to start at",
+        "schema": {
+          "minimum": 0,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "Status": {
+        "name": "status",
+        "in": "query",
+        "description": "Only return jobs with the specified status or statuses (separated by a comma) Completed Failed Queued = Waiting for post-processing QuickCheck Verifying Repairing Fetching = Job is downloading extra par2 files Extracting Moving Running = Post-processing script is running",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Username": {
+        "name": "username",
+        "in": "query",
+        "description": "SABnzbd username query parameter.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Value": {
+        "name": "value",
+        "in": "query",
+        "description": "Primary command value, commonly an nzo_id.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Value2": {
+        "name": "value2",
+        "in": "query",
+        "description": "Secondary command value.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "Value3": {
+        "name": "value3",
+        "in": "query",
+        "description": "Tertiary command value.",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "description": "API key from Config \u003E General. The restricted NZB key can modify queue jobs only.",
+        "name": "apikey",
+        "in": "query"
+      },
+      "assets_jwt": {
+        "type": "http",
+        "description": "JWT used for assets upload",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Api"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official SABnzbd 5.0 API reference",
+    "url": "https://sabnzbd.org/wiki/configuration/5.0/api"
+  }
+}
