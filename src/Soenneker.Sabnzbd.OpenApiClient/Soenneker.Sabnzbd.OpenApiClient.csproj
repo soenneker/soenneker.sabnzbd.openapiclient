@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>A .NET client generated from the Sabnzbd's documentation, updated daily</Description>
+        <Description>A .NET client generated from the SABnzbd API documentation, updated daily</Description>
         <Version Condition="'$(BUILD_VERSION)' == ''">4.0.0</Version>
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.Sabnzbd.OpenApiClient</AssemblyName>

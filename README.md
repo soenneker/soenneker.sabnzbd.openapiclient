@@ -3,7 +3,7 @@
 [![](https://img.shields.io/nuget/dt/soenneker.sabnzbd.openapiclient.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.sabnzbd.openapiclient/)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Sabnzbd.OpenApiClient
-### A .NET client generated from the Sabnzbd's documentation, updated daily
+### A .NET client generated from the SABnzbd API documentation, updated daily
 
 ## Installation
 
