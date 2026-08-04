@@ -197,7 +197,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/ApiCommandResponseStatus"
+            "type": "boolean"
           },
           "queue": {
             "$ref": "#/components/schemas/ApiCommandResponseQueue"
@@ -255,14 +255,14 @@
           "servers": {
             "$ref": "#/components/schemas/ApiCommandResponseServersProperty"
           },
+          "value": {
+            "$ref": "#/components/schemas/ApiCommandResponseValue"
+          },
           "warnings": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApiCommandResponseWarningsItem"
             }
-          },
-          "value": {
-            "type": "string"
           }
         },
         "description": "Combined response envelope inferred from the JSON examples in the SABnzbd API reference. Only properties returned by the selected command are populated."
@@ -764,14 +764,14 @@
         "type": "string",
         "format": "binary"
       },
-      "ApiCommandResponseStatus": {
-        "type": "object"
-      },
       "ApiCommandResponseServersProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
         }
+      },
+      "ApiCommandResponseValue": {
+        "type": "object"
       },
       "ApiCommandResponseQueueFinishaction": {
         "type": "object"
@@ -813,11 +813,13 @@
           "addlocalfile",
           "addurl",
           "auth",
+          "cancel_pp",
           "change_cat",
           "change_opts",
           "change_script",
           "config",
           "del_config",
+          "disconnect",
           "fullstatus",
           "get_cats",
           "get_config",
@@ -867,6 +869,10 @@
               "name": "Auth"
             },
             {
+              "value": "cancel_pp",
+              "name": "CancelPp"
+            },
+            {
               "value": "change_cat",
               "name": "ChangeCat"
             },
@@ -885,6 +891,10 @@
             {
               "value": "del_config",
               "name": "DelConfig"
+            },
+            {
+              "value": "disconnect",
+              "name": "Disconnect"
             },
             {
               "value": "fullstatus",
@@ -1228,7 +1238,7 @@
       "Priority": {
         "name": "priority",
         "in": "query",
-        "description": "\u0022Priority to be assigned: -100 = Default Priority (of category) -3 = Duplicate -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force\u0022",
+        "description": "\u0022Priority to be assigned: -100 = Default Priority (of category) -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force\u0022",
         "schema": {
           "type": "string"
         }

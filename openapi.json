@@ -202,6 +202,8 @@
           "api?mode=history\u0026name=delete\u0026archive=0\u0026value=NZO_ID_1,NZO_ID_2,NZO_ID_3",
           "api?mode=history\u0026name=delete\u0026value=all",
           "api?mode=history\u0026name=delete\u0026value=failed",
+          "api?mode=history\u0026name=delete\u0026value=completed",
+          "api?mode=history\u0026name=delete\u0026value=failed\u0026search=SEARCH",
           "api?mode=history\u0026name=mark_as_completed\u0026value=NZO_ID",
           "api?mode=history\u0026name=mark_as_completed\u0026value=NZO_ID_1,NZO_ID_2,NZO_ID_3",
           "api?mode=status\u0026skip_dashboard=0",
@@ -209,6 +211,8 @@
           "api?mode=status\u0026name=delete_orphan\u0026value=FOLDERNAME",
           "api?mode=status\u0026name=add_orphan\u0026value=FOLDERNAME",
           "api?mode=FUNCTION",
+          "api?mode=cancel_pp\u0026value=NZO_ID",
+          "api?mode=cancel_pp\u0026value=NZO_ID_1,NZO_ID_2,NZO_ID_3",
           "api?mode=get_cats",
           "api?mode=get_scripts",
           "api?mode=server_stats",
@@ -227,6 +231,8 @@
           "api?mode=set_config\u0026section=rss\u0026name=FEED_NAME\u0026enable=VALUE_1\u0026pp=VALUE_2",
           "api?mode=set_config\u0026section=sorters\u0026name=SORTER_NAME\u0026sort_string=VALUE_1\u0026sort_cats=VALUE_2\u0026sort_type=VALUE_3",
           "api?mode=set_config_default\u0026keyword=SETTING_1\u0026keyword=SETTING_2",
+          "api?mode=config\u0026name=create_backup",
+          "api?mode=config\u0026name=purge_log_files",
           "api?mode=warnings",
           "api?mode=warnings\u0026name=clear",
           "api?mode=translate\u0026value=Watched%20Folder"
@@ -254,6 +260,11 @@
             "mode": "auth"
           },
           {
+            "function": "cancel_pp",
+            "description": "Cancel post-processing of a job",
+            "mode": "cancel_pp"
+          },
+          {
             "function": "change_cat",
             "description": "Change job category"
           },
@@ -271,7 +282,7 @@
           },
           {
             "function": "del_config",
-            "description": "True/False Delete a configuration item within the \u0022servers\u0022, \u0022rss\u0022, \u0022categories\u0022, or \u0022sorters\u0022 sections.",
+            "description": "True/False Config lock Delete a configuration item within the \u0022servers\u0022, \u0022rss\u0022, \u0022categories\u0022, or \u0022sorters\u0022 sections.",
             "mode": "del_config"
           },
           {
@@ -289,6 +300,11 @@
           {
             "function": "delete_orphan",
             "description": "True/False Delete orphaned job"
+          },
+          {
+            "function": "disconnect",
+            "description": "True/False Disconnect from all news servers",
+            "mode": "disconnect"
           },
           {
             "function": "get_cats",
@@ -318,20 +334,32 @@
             "description": "Mark failed job as completed"
           },
           {
+            "function": "mode=config name=create_backup",
+            "description": "Config lock Create a backup of the configuration, returns the location of the backup file",
+            "mode": "config",
+            "name": "create_backup"
+          },
+          {
+            "function": "mode=config name=purge_log_files",
+            "description": "True/False Config lock Remove all old log files, keeping only the current sabnzbd.log",
+            "mode": "config",
+            "name": "purge_log_files"
+          },
+          {
             "function": "mode=config name=regenerate_certs",
-            "description": "True/False Regenerate the self-signed certificate for HTTPS connection to interface, requires SABnzbd restart to take effect",
+            "description": "True/False Config lock Regenerate the self-signed certificate for HTTPS connection to interface, requires SABnzbd restart to take effect",
             "mode": "config",
             "name": "regenerate_certs"
           },
           {
             "function": "mode=config name=set_apikey",
-            "description": "Reset the API key, returns the new key",
+            "description": "Config lock Reset the API key, returns the new key",
             "mode": "config",
             "name": "set_apikey"
           },
           {
             "function": "mode=config name=set_nzbkey",
-            "description": "Reset the NZB key, returns the new key",
+            "description": "Config lock Reset the NZB key, returns the new key",
             "mode": "config",
             "name": "set_nzbkey"
           },
@@ -432,12 +460,12 @@
           },
           {
             "function": "set_config",
-            "description": "Set configuration item to value",
+            "description": "Config lock Set configuration item to value",
             "mode": "set_config"
           },
           {
             "function": "set_config_default",
-            "description": "True/False Reset config item to default value",
+            "description": "True/False Config lock Reset config item to default value",
             "mode": "set_config_default"
           },
           {
@@ -456,7 +484,7 @@
           },
           {
             "function": "speedlimit",
-            "description": "Set speedlimit"
+            "description": "Config lock Set speedlimit"
           },
           {
             "function": "status / fullstatus",
@@ -551,11 +579,13 @@
             "addlocalfile",
             "addurl",
             "auth",
+            "cancel_pp",
             "change_cat",
             "change_opts",
             "change_script",
             "config",
             "del_config",
+            "disconnect",
             "fullstatus",
             "get_cats",
             "get_config",
@@ -784,7 +814,7 @@
         "name": "priority",
         "in": "query",
         "required": false,
-        "description": "Priority to be assigned: -100 = Default Priority (of category) -3 = Duplicate -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force",
+        "description": "Priority to be assigned: -100 = Default Priority (of category) -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force",
         "schema": {
           "type": "string"
         }
@@ -937,7 +967,9 @@
       "ApiCommandResponse": {
         "type": "object",
         "properties": {
-          "status": {},
+          "status": {
+            "type": "boolean"
+          },
           "queue": {
             "type": "object",
             "properties": {
@@ -1399,6 +1431,7 @@
               "additionalProperties": true
             }
           },
+          "value": {},
           "warnings": {
             "type": "array",
             "items": {
@@ -1417,9 +1450,6 @@
               },
               "additionalProperties": true
             }
-          },
-          "value": {
-            "type": "string"
           }
         },
         "additionalProperties": true,

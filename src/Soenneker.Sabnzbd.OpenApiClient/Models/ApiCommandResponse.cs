@@ -86,22 +86,16 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty Servers { get; set; }
 #endif
         /// <summary>The status property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseStatus Status { get; set; }
-#endif
+        public bool? Status { get; set; }
         /// <summary>The total property</summary>
         public long? Total { get; set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get; set; }
+        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue? Value { get; set; }
 #nullable restore
 #else
-        public string Value { get; set; }
+        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue Value { get; set; }
 #endif
         /// <summary>The warnings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -149,9 +143,9 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseResult>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseResult.CreateFromDiscriminatorValue); } },
                 { "scripts", n => { Scripts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "servers", n => { Servers = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseStatus>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetBoolValue(); } },
                 { "total", n => { Total = n.GetLongValue(); } },
-                { "value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue.CreateFromDiscriminatorValue); } },
                 { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "week", n => { Week = n.GetLongValue(); } },
             };
@@ -174,9 +168,9 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseResult>("result", Result);
             writer.WriteCollectionOfPrimitiveValues<string>("scripts", Scripts);
             writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty>("servers", Servers);
-            writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseStatus>("status", Status);
+            writer.WriteBoolValue("status", Status);
             writer.WriteLongValue("total", Total);
-            writer.WriteStringValue("value", Value);
+            writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue>("value", Value);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem>("warnings", Warnings);
             writer.WriteLongValue("week", Week);
             writer.WriteAdditionalData(AdditionalData);

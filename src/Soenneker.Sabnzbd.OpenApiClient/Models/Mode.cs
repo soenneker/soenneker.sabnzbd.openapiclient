@@ -20,6 +20,10 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         #pragma warning disable CS1591
         Auth,
         #pragma warning restore CS1591
+        [EnumMember(Value = "cancel_pp")]
+        #pragma warning disable CS1591
+        CancelPp,
+        #pragma warning restore CS1591
         [EnumMember(Value = "change_cat")]
         #pragma warning disable CS1591
         ChangeCat,
@@ -39,6 +43,10 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         [EnumMember(Value = "del_config")]
         #pragma warning disable CS1591
         DelConfig,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "disconnect")]
+        #pragma warning disable CS1591
+        Disconnect,
         #pragma warning restore CS1591
         [EnumMember(Value = "fullstatus")]
         #pragma warning disable CS1591

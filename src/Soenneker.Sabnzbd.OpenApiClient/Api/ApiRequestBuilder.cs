@@ -254,7 +254,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Api
             /// <summary>&quot;Post-processing options: -1 = Default (of category) 0 = None 1 = +Repair 2 = +Repair/Unpack 3 = +Repair/Unpack/Delete&quot;</summary>
             [QueryParameter("pp")]
             public int? Pp { get; set; }
-            /// <summary>&quot;Priority to be assigned: -100 = Default Priority (of category) -3 = Duplicate -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force&quot;</summary>
+            /// <summary>&quot;Priority to be assigned: -100 = Default Priority (of category) -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("priority")]
