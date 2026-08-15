@@ -169,7 +169,8 @@
                 "$ref": "#/components/schemas/NzbUploadRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1227,7 +1228,7 @@
       "Pp": {
         "name": "pp",
         "in": "query",
-        "description": "\u0022Post-processing options: -1 = Default (of category) 0 = None 1 = \u002BRepair 2 = \u002BRepair/Unpack 3 = \u002BRepair/Unpack/Delete\u0022",
+        "description": "Post-processing options: -1 = Default (of category) 0 = None 1 = \u002BRepair 2 = \u002BRepair/Unpack 3 = \u002BRepair/Unpack/Delete",
         "schema": {
           "maximum": 3,
           "minimum": -1,
@@ -1238,7 +1239,7 @@
       "Priority": {
         "name": "priority",
         "in": "query",
-        "description": "\u0022Priority to be assigned: -100 = Default Priority (of category) -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force\u0022",
+        "description": "Priority to be assigned: -100 = Default Priority (of category) -2 = Paused -1 = Low Priority 0 = Normal Priority 1 = High Priority 2 = Force",
         "schema": {
           "type": "string"
         }
@@ -1374,12 +1375,6 @@
         "description": "API key from Config \u003E General. The restricted NZB key can modify queue jobs only.",
         "name": "apikey",
         "in": "query"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },
