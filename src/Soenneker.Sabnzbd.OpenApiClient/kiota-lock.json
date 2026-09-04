@@ -2,7 +2,7 @@
   "descriptionHash": "1CC81A512E3D211BD386E2C6479E8BF451F46DEC06B075BF7227D52318682C21264ED07DAEBC27CFDC3721B8BF4D2083EE249726A4CBF7871F17BC8D31E5B8E6",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.1",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "SabnzbdOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Sabnzbd.OpenApiClient",
