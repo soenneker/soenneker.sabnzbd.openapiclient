@@ -612,9 +612,7 @@
           "servers": {
             "$ref": "#/components/schemas/ApiCommandResponseServersProperty"
           },
-          "value": {
-            "$ref": "#/components/schemas/ApiCommandResponseValue"
-          },
+          "value": {},
           "warnings": {
             "type": "array",
             "items": {
@@ -765,9 +763,7 @@
           "cache_size": {
             "type": "string"
           },
-          "finishaction": {
-            "$ref": "#/components/schemas/ApiCommandResponseQueueFinishaction"
-          },
+          "finishaction": {},
           "paused_all": {
             "type": "boolean"
           },
@@ -957,9 +953,7 @@
           "duplicate_key": {
             "type": "string"
           },
-          "meta": {
-            "$ref": "#/components/schemas/ApiCommandResponseHistorySlotsItemMeta"
-          },
+          "meta": {},
           "fail_message": {
             "type": "string"
           },
@@ -1127,15 +1121,6 @@
           "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
         }
       },
-      "ApiCommandResponseValue": {
-        "type": "object"
-      },
-      "ApiCommandResponseQueueFinishaction": {
-        "type": "object"
-      },
-      "ApiCommandResponseHistorySlotsItemMeta": {
-        "type": "object"
-      },
       "ApiCommandResponseServersAdditionalPropertiesDailyProperty": {
         "type": "object",
         "additionalProperties": {
@@ -1149,7 +1134,6 @@
           "retry"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NzbUploadRequestMode",
           "modelAsString": false,
@@ -1208,7 +1192,6 @@
           "watched_now"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "Mode",
           "modelAsString": false,
@@ -1377,24 +1360,21 @@
           0,
           1
         ],
-        "type": "integer",
-        "additionalProperties": false
+        "type": "integer"
       },
       "DelFiles": {
         "enum": [
           0,
           1
         ],
-        "type": "integer",
-        "additionalProperties": false
+        "type": "integer"
       },
       "FailedOnly": {
         "enum": [
           0,
           1
         ],
-        "type": "integer",
-        "additionalProperties": false
+        "type": "integer"
       },
       "Output": {
         "enum": [
@@ -1402,7 +1382,6 @@
           "xml"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "Output",
           "modelAsString": false,
@@ -1423,8 +1402,7 @@
           0,
           1
         ],
-        "type": "integer",
-        "additionalProperties": false
+        "type": "integer"
       }
     },
     "parameters": {

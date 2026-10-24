@@ -71,10 +71,10 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         /// <summary>The meta property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItemMeta? Meta { get; set; }
+        public UntypedNode? Meta { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItemMeta Meta { get; set; }
+        public UntypedNode Meta { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -239,7 +239,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
                 { "has_rating", n => { HasRating = n.GetBoolValue(); } },
                 { "loaded", n => { Loaded = n.GetBoolValue(); } },
                 { "md5sum", n => { Md5sum = n.GetStringValue(); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItemMeta>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItemMeta.CreateFromDiscriminatorValue); } },
+                { "meta", n => { Meta = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nzb_name", n => { NzbName = n.GetStringValue(); } },
                 { "nzo_id", n => { NzoId = n.GetStringValue(); } },
@@ -279,7 +279,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
             writer.WriteBoolValue("has_rating", HasRating);
             writer.WriteBoolValue("loaded", Loaded);
             writer.WriteStringValue("md5sum", Md5sum);
-            writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItemMeta>("meta", Meta);
+            writer.WriteObjectValue<UntypedNode>("meta", Meta);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nzb_name", NzbName);
             writer.WriteStringValue("nzo_id", NzoId);

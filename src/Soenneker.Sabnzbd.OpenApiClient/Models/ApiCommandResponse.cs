@@ -92,10 +92,10 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue? Value { get; set; }
+        public UntypedNode? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue Value { get; set; }
+        public UntypedNode Value { get; set; }
 #endif
         /// <summary>The warnings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -145,7 +145,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
                 { "servers", n => { Servers = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetBoolValue(); } },
                 { "total", n => { Total = n.GetLongValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "warnings", n => { Warnings = n.GetCollectionOfObjectValues<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "week", n => { Week = n.GetLongValue(); } },
             };
@@ -170,7 +170,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseServersProperty>("servers", Servers);
             writer.WriteBoolValue("status", Status);
             writer.WriteLongValue("total", Total);
-            writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseValue>("value", Value);
+            writer.WriteObjectValue<UntypedNode>("value", Value);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseWarningsItem>("warnings", Warnings);
             writer.WriteLongValue("week", Week);
             writer.WriteAdditionalData(AdditionalData);

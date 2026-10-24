@@ -83,10 +83,10 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         /// <summary>The finishaction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseQueueFinishaction? Finishaction { get; set; }
+        public UntypedNode? Finishaction { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseQueueFinishaction Finishaction { get; set; }
+        public UntypedNode Finishaction { get; set; }
 #endif
         /// <summary>The have_quota property</summary>
         public bool? HaveQuota { get; set; }
@@ -264,7 +264,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
                 { "diskspacetotal1", n => { Diskspacetotal1 = n.GetStringValue(); } },
                 { "diskspacetotal2", n => { Diskspacetotal2 = n.GetStringValue(); } },
                 { "finish", n => { Finish = n.GetLongValue(); } },
-                { "finishaction", n => { Finishaction = n.GetObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseQueueFinishaction>(global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseQueueFinishaction.CreateFromDiscriminatorValue); } },
+                { "finishaction", n => { Finishaction = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "have_quota", n => { HaveQuota = n.GetBoolValue(); } },
                 { "have_warnings", n => { HaveWarnings = n.GetStringValue(); } },
                 { "kbpersec", n => { Kbpersec = n.GetStringValue(); } },
@@ -306,7 +306,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
             writer.WriteStringValue("diskspacetotal1", Diskspacetotal1);
             writer.WriteStringValue("diskspacetotal2", Diskspacetotal2);
             writer.WriteLongValue("finish", Finish);
-            writer.WriteObjectValue<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseQueueFinishaction>("finishaction", Finishaction);
+            writer.WriteObjectValue<UntypedNode>("finishaction", Finishaction);
             writer.WriteBoolValue("have_quota", HaveQuota);
             writer.WriteStringValue("have_warnings", HaveWarnings);
             writer.WriteStringValue("kbpersec", Kbpersec);
