@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "4318C9AC69E5872D1226F4CE46C1AACF6B4B8644C5C3C5C87C88EC4C768E28247916C3F2DB134C2A8F989F9189857A8FFFB0FE35C68C1437A0026C52224ED57A",
+  "descriptionHash": "2F06C9F85290EC27107F1C7C47A8DA859E238572F19B46D918412A207C41651FAC0245719570C7B39018B48FB407FE595687FCBAF46128B621DD87A06D06D9E3",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.36.1",
+  "kiotaVersion": "1.37.0",
   "clientClassName": "SabnzbdOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Sabnzbd.OpenApiClient",

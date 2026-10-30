@@ -11,72 +11,103 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiCommandResponseFilesItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("age") is { } nullNodeAge && nullNodeAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Age = null;
+            if (parseNode.GetChildNode("bytes") is { } nullNodeBytes && nullNodeBytes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bytes = null;
+            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("mb") is { } nullNodeMb && nullNodeMb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mb = null;
+            if (parseNode.GetChildNode("mbleft") is { } nullNodeMbleft && nullNodeMbleft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mbleft = null;
+            if (parseNode.GetChildNode("nzf_id") is { } nullNodeNzfId && nullNodeNzfId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NzfId = null;
+            if (parseNode.GetChildNode("set") is { } nullNodeSet && nullNodeSet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Set = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The age property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Age { get; set; }
+        public string? Age { get => _explicitNullValueAge; set { _explicitNullValueAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("age"); else _explicitNullProperties?.Remove("age"); } }
+        private string? _explicitNullValueAge = default!;
 #nullable restore
 #else
-        public string Age { get; set; }
+        public string Age { get => _explicitNullValueAge; set { _explicitNullValueAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("age"); else _explicitNullProperties?.Remove("age"); } }
+        private string _explicitNullValueAge = default!;
 #endif
         /// <summary>The bytes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Bytes { get; set; }
+        public string? Bytes { get => _explicitNullValueBytes; set { _explicitNullValueBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes"); else _explicitNullProperties?.Remove("bytes"); } }
+        private string? _explicitNullValueBytes = default!;
 #nullable restore
 #else
-        public string Bytes { get; set; }
+        public string Bytes { get => _explicitNullValueBytes; set { _explicitNullValueBytes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bytes"); else _explicitNullProperties?.Remove("bytes"); } }
+        private string _explicitNullValueBytes = default!;
 #endif
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get; set; }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get; set; }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>The mb property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mb { get; set; }
+        public string? Mb { get => _explicitNullValueMb; set { _explicitNullValueMb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mb"); else _explicitNullProperties?.Remove("mb"); } }
+        private string? _explicitNullValueMb = default!;
 #nullable restore
 #else
-        public string Mb { get; set; }
+        public string Mb { get => _explicitNullValueMb; set { _explicitNullValueMb = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mb"); else _explicitNullProperties?.Remove("mb"); } }
+        private string _explicitNullValueMb = default!;
 #endif
         /// <summary>The mbleft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Mbleft { get; set; }
+        public string? Mbleft { get => _explicitNullValueMbleft; set { _explicitNullValueMbleft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mbleft"); else _explicitNullProperties?.Remove("mbleft"); } }
+        private string? _explicitNullValueMbleft = default!;
 #nullable restore
 #else
-        public string Mbleft { get; set; }
+        public string Mbleft { get => _explicitNullValueMbleft; set { _explicitNullValueMbleft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mbleft"); else _explicitNullProperties?.Remove("mbleft"); } }
+        private string _explicitNullValueMbleft = default!;
 #endif
         /// <summary>The nzf_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NzfId { get; set; }
+        public string? NzfId { get => _explicitNullValueNzfId; set { _explicitNullValueNzfId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nzf_id"); else _explicitNullProperties?.Remove("nzf_id"); } }
+        private string? _explicitNullValueNzfId = default!;
 #nullable restore
 #else
-        public string NzfId { get; set; }
+        public string NzfId { get => _explicitNullValueNzfId; set { _explicitNullValueNzfId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nzf_id"); else _explicitNullProperties?.Remove("nzf_id"); } }
+        private string _explicitNullValueNzfId = default!;
 #endif
         /// <summary>The set property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Set { get; set; }
+        public string? Set { get => _explicitNullValueSet; set { _explicitNullValueSet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("set"); else _explicitNullProperties?.Remove("set"); } }
+        private string? _explicitNullValueSet = default!;
 #nullable restore
 #else
-        public string Set { get; set; }
+        public string Set { get => _explicitNullValueSet; set { _explicitNullValueSet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("set"); else _explicitNullProperties?.Remove("set"); } }
+        private string _explicitNullValueSet = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseFilesItem"/> and sets the default values.
@@ -93,7 +124,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         public static global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseFilesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseFilesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseFilesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,6 +159,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
             writer.WriteStringValue("nzf_id", NzfId);
             writer.WriteStringValue("set", Set);
             writer.WriteStringValue("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
