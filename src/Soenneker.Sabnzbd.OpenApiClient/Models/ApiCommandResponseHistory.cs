@@ -17,14 +17,22 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("day_size") is { } nullNodeDaySize && nullNodeDaySize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DaySize = null;
-            if (parseNode.GetChildNode("last_history_update") is { } nullNodeLastHistoryUpdate && nullNodeLastHistoryUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastHistoryUpdate = null;
-            if (parseNode.GetChildNode("month_size") is { } nullNodeMonthSize && nullNodeMonthSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthSize = null;
-            if (parseNode.GetChildNode("noofslots") is { } nullNodeNoofslots && nullNodeNoofslots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Noofslots = null;
-            if (parseNode.GetChildNode("ppslots") is { } nullNodePpslots && nullNodePpslots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ppslots = null;
-            if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
-            if (parseNode.GetChildNode("total_size") is { } nullNodeTotalSize && nullNodeTotalSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSize = null;
-            if (parseNode.GetChildNode("week_size") is { } nullNodeWeekSize && nullNodeWeekSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeekSize = null;
+            if (parseNode.GetChildNode("day_size") is null) { _explicitNullValueDaySize = default!; _explicitNullProperties?.Remove("day_size"); }
+            else if (parseNode.GetChildNode("day_size") is { } nullNodeDaySize && nullNodeDaySize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DaySize = null;
+            if (parseNode.GetChildNode("last_history_update") is null) { _explicitNullValueLastHistoryUpdate = default!; _explicitNullProperties?.Remove("last_history_update"); }
+            else if (parseNode.GetChildNode("last_history_update") is { } nullNodeLastHistoryUpdate && nullNodeLastHistoryUpdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastHistoryUpdate = null;
+            if (parseNode.GetChildNode("month_size") is null) { _explicitNullValueMonthSize = default!; _explicitNullProperties?.Remove("month_size"); }
+            else if (parseNode.GetChildNode("month_size") is { } nullNodeMonthSize && nullNodeMonthSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MonthSize = null;
+            if (parseNode.GetChildNode("noofslots") is null) { _explicitNullValueNoofslots = default!; _explicitNullProperties?.Remove("noofslots"); }
+            else if (parseNode.GetChildNode("noofslots") is { } nullNodeNoofslots && nullNodeNoofslots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Noofslots = null;
+            if (parseNode.GetChildNode("ppslots") is null) { _explicitNullValuePpslots = default!; _explicitNullProperties?.Remove("ppslots"); }
+            else if (parseNode.GetChildNode("ppslots") is { } nullNodePpslots && nullNodePpslots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ppslots = null;
+            if (parseNode.GetChildNode("slots") is null) { _explicitNullValueSlots = default!; _explicitNullProperties?.Remove("slots"); }
+            else if (parseNode.GetChildNode("slots") is { } nullNodeSlots && nullNodeSlots.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Slots = null;
+            if (parseNode.GetChildNode("total_size") is null) { _explicitNullValueTotalSize = default!; _explicitNullProperties?.Remove("total_size"); }
+            else if (parseNode.GetChildNode("total_size") is { } nullNodeTotalSize && nullNodeTotalSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalSize = null;
+            if (parseNode.GetChildNode("week_size") is null) { _explicitNullValueWeekSize = default!; _explicitNullProperties?.Remove("week_size"); }
+            else if (parseNode.GetChildNode("week_size") is { } nullNodeWeekSize && nullNodeWeekSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WeekSize = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,60 +40,60 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Models
         /// <summary>The day_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DaySize { get => _explicitNullValueDaySize; set { _explicitNullValueDaySize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day_size"); else _explicitNullProperties?.Remove("day_size"); } }
+        public string? DaySize { get => _explicitNullValueDaySize; set { _explicitNullValueDaySize = value; AdditionalData?.Remove("day_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day_size"); else _explicitNullProperties?.Remove("day_size"); } }
         private string? _explicitNullValueDaySize = default!;
 #nullable restore
 #else
-        public string DaySize { get => _explicitNullValueDaySize; set { _explicitNullValueDaySize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day_size"); else _explicitNullProperties?.Remove("day_size"); } }
+        public string DaySize { get => _explicitNullValueDaySize; set { _explicitNullValueDaySize = value; AdditionalData?.Remove("day_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day_size"); else _explicitNullProperties?.Remove("day_size"); } }
         private string _explicitNullValueDaySize = default!;
 #endif
         /// <summary>The last_history_update property</summary>
-        public long? LastHistoryUpdate { get => _explicitNullValueLastHistoryUpdate; set { _explicitNullValueLastHistoryUpdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_history_update"); else _explicitNullProperties?.Remove("last_history_update"); } }
+        public long? LastHistoryUpdate { get => _explicitNullValueLastHistoryUpdate; set { _explicitNullValueLastHistoryUpdate = value; AdditionalData?.Remove("last_history_update"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_history_update"); else _explicitNullProperties?.Remove("last_history_update"); } }
         private long? _explicitNullValueLastHistoryUpdate = default!;
         /// <summary>The month_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MonthSize { get => _explicitNullValueMonthSize; set { _explicitNullValueMonthSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_size"); else _explicitNullProperties?.Remove("month_size"); } }
+        public string? MonthSize { get => _explicitNullValueMonthSize; set { _explicitNullValueMonthSize = value; AdditionalData?.Remove("month_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_size"); else _explicitNullProperties?.Remove("month_size"); } }
         private string? _explicitNullValueMonthSize = default!;
 #nullable restore
 #else
-        public string MonthSize { get => _explicitNullValueMonthSize; set { _explicitNullValueMonthSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_size"); else _explicitNullProperties?.Remove("month_size"); } }
+        public string MonthSize { get => _explicitNullValueMonthSize; set { _explicitNullValueMonthSize = value; AdditionalData?.Remove("month_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month_size"); else _explicitNullProperties?.Remove("month_size"); } }
         private string _explicitNullValueMonthSize = default!;
 #endif
         /// <summary>The noofslots property</summary>
-        public long? Noofslots { get => _explicitNullValueNoofslots; set { _explicitNullValueNoofslots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noofslots"); else _explicitNullProperties?.Remove("noofslots"); } }
+        public long? Noofslots { get => _explicitNullValueNoofslots; set { _explicitNullValueNoofslots = value; AdditionalData?.Remove("noofslots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noofslots"); else _explicitNullProperties?.Remove("noofslots"); } }
         private long? _explicitNullValueNoofslots = default!;
         /// <summary>The ppslots property</summary>
-        public long? Ppslots { get => _explicitNullValuePpslots; set { _explicitNullValuePpslots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ppslots"); else _explicitNullProperties?.Remove("ppslots"); } }
+        public long? Ppslots { get => _explicitNullValuePpslots; set { _explicitNullValuePpslots = value; AdditionalData?.Remove("ppslots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ppslots"); else _explicitNullProperties?.Remove("ppslots"); } }
         private long? _explicitNullValuePpslots = default!;
         /// <summary>The slots property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem>? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        public List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem>? Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
         private List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem>? _explicitNullValueSlots = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem> Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
+        public List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem> Slots { get => _explicitNullValueSlots; set { _explicitNullValueSlots = value; AdditionalData?.Remove("slots"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slots"); else _explicitNullProperties?.Remove("slots"); } }
         private List<global::Soenneker.Sabnzbd.OpenApiClient.Models.ApiCommandResponseHistorySlotsItem> _explicitNullValueSlots = default!;
 #endif
         /// <summary>The total_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalSize { get => _explicitNullValueTotalSize; set { _explicitNullValueTotalSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_size"); else _explicitNullProperties?.Remove("total_size"); } }
+        public string? TotalSize { get => _explicitNullValueTotalSize; set { _explicitNullValueTotalSize = value; AdditionalData?.Remove("total_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_size"); else _explicitNullProperties?.Remove("total_size"); } }
         private string? _explicitNullValueTotalSize = default!;
 #nullable restore
 #else
-        public string TotalSize { get => _explicitNullValueTotalSize; set { _explicitNullValueTotalSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_size"); else _explicitNullProperties?.Remove("total_size"); } }
+        public string TotalSize { get => _explicitNullValueTotalSize; set { _explicitNullValueTotalSize = value; AdditionalData?.Remove("total_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total_size"); else _explicitNullProperties?.Remove("total_size"); } }
         private string _explicitNullValueTotalSize = default!;
 #endif
         /// <summary>The week_size property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WeekSize { get => _explicitNullValueWeekSize; set { _explicitNullValueWeekSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("week_size"); else _explicitNullProperties?.Remove("week_size"); } }
+        public string? WeekSize { get => _explicitNullValueWeekSize; set { _explicitNullValueWeekSize = value; AdditionalData?.Remove("week_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("week_size"); else _explicitNullProperties?.Remove("week_size"); } }
         private string? _explicitNullValueWeekSize = default!;
 #nullable restore
 #else
-        public string WeekSize { get => _explicitNullValueWeekSize; set { _explicitNullValueWeekSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("week_size"); else _explicitNullProperties?.Remove("week_size"); } }
+        public string WeekSize { get => _explicitNullValueWeekSize; set { _explicitNullValueWeekSize = value; AdditionalData?.Remove("week_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("week_size"); else _explicitNullProperties?.Remove("week_size"); } }
         private string _explicitNullValueWeekSize = default!;
 #endif
         /// <summary>
