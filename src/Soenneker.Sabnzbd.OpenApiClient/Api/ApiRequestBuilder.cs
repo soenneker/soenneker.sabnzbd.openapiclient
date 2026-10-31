@@ -85,7 +85,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Api
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Sabnzbd.OpenApiClient.Api.ApiRequestBuilder.ApiRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/api?mode={mode}{&archive*,cat*,category*,connections*,del_files*,dir*,enable*,failed_only*,keyword*,last_history_update*,limit*,name*,nzbname*,nzf_ids*,nzo_ids*,output*,password*,pp*,priority*,script*,search*,section*,size*,skip_dashboard*,sort*,sort_cats*,sort_string*,sort_type*,start*,status*,username*,value*,value2*,value3*}", RequestAdapter.BaseUrl, "http://localhost:8080", "/api", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/api?mode={mode}{&archive*,cat*,category*,connections*,del_files*,dir*,enable*,failed_only*,keyword*,last_history_update*,limit*,name*,nzbname*,nzf_ids*,nzo_ids*,output*,password*,pp*,priority*,script*,search*,section*,size*,skip_dashboard*,sort*,sort_cats*,sort_string*,sort_type*,start*,status*,username*,value*,value2*,value3*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -106,7 +106,7 @@ namespace Soenneker.Sabnzbd.OpenApiClient.Api
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "http://localhost:8080", "/api", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "multipart/form-data", body);
