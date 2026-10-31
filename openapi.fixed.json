@@ -133,28 +133,18 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ApiCommandResponse"
                 }
-              },
+              }
+            },
+            "x-client-original-non-json-content": {
               "application/xml": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ApiCommandResponse"
                 }
               },
               "application/zip": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
-                },
-                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/ExecuteApiCommand200ZipResponseSchema"
                 }
               }
