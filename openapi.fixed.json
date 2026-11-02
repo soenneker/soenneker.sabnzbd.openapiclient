@@ -765,7 +765,9 @@
           "cache_size": {
             "type": "string"
           },
-          "finishaction": {},
+          "finishaction": {
+            "nullable": true
+          },
           "paused_all": {
             "type": "boolean"
           },
@@ -955,7 +957,9 @@
           "duplicate_key": {
             "type": "string"
           },
-          "meta": {},
+          "meta": {
+            "nullable": true
+          },
           "fail_message": {
             "type": "string"
           },
