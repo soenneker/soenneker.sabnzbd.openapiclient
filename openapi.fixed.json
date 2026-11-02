@@ -856,12 +856,6 @@
           }
         }
       },
-      "ApiCommandResponseServers": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
-        }
-      },
       "ApiCommandResponseWarningsItem": {
         "type": "object",
         "properties": {
@@ -1101,25 +1095,6 @@
             }
           }
         }
-      },
-      "ApiCommandResponseServersAdditionalPropertiesDaily": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "ExecuteApiCommand200ZipResponse": {
-        "type": "string",
-        "format": "binary"
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
-      },
-      "ExecuteApiCommand200ZipResponseSchema": {
-        "type": "string",
-        "format": "binary"
       },
       "ApiCommandResponseServersProperty": {
         "type": "object",
@@ -1727,5 +1702,32 @@
     "description": "Official SABnzbd 5.0 API reference",
     "url": "https://sabnzbd.org/wiki/configuration/5.0/api"
   },
-  "x-source-url": "https://sabnzbd.org/wiki/configuration/5.0/api"
+  "x-source-url": "https://sabnzbd.org/wiki/configuration/5.0/api",
+  "x-client-unused-schemas": {
+    "ApiCommandResponseServers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/ApiCommandResponseServersAdditionalProperties"
+      }
+    },
+    "ApiCommandResponseServersAdditionalPropertiesDaily": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "ExecuteApiCommand200ZipResponse": {
+      "type": "string",
+      "format": "binary"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    },
+    "ExecuteApiCommand200ZipResponseSchema": {
+      "type": "string",
+      "format": "binary"
+    }
+  }
 }
